@@ -1,0 +1,702 @@
+{
+    "001": {
+        "title": "Things Fall Apart",
+        "author": "Chinua Achebe",
+        "year": 1958,
+        "genre": "Postcolonial Fiction",
+        "rating": 3.92
+    },
+    "002": {
+        "title": "Fairy tales",
+        "author": "Hans Christian Andersen",
+        "year": 1836,
+        "genre": "Children Fiction",
+        "rating": 3.85
+    },
+    "003": {
+        "title": "The Divine Comedy",
+        "author": "Dante Alighieri",
+        "year": 1315,
+        "genre": "Epic Poetry",
+        "rating": 4
+    },
+    "004": {
+        "title": "The Epic Of Gilgamesh",
+        "author": "Unknown",
+        "year": -1700,
+        "genre": "Epic Poetry",
+        "rating": 3.64
+    },
+    "005": {
+        "title": "The Book Of Job",
+        "author": "Unknown",
+        "year": -600,
+        "genre": "Religious Text",
+        "rating": 3.0
+    },
+    "006": {
+        "title": "One Thousand and One Nights",
+        "author": "Unknown",
+        "year": 1200,
+        "genre": "Frame Tale",
+        "rating": 4.0
+    },
+    "007": {
+        "title": "Njál's Saga",
+        "author": "Unknown",
+        "year": 1350,
+        "genre": "Literary Fiction",
+        "rating": 4.33
+    },
+    "008": {
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "year": 1813,
+        "genre": "Romance",
+        "rating": 4.19
+    },
+    "009": {
+        "title": "Le Père Goriot",
+        "author": "Honoré de Balzac",
+        "year": 1835,
+        "genre": "Realist Novel",
+        "rating": 0
+    },
+    "010": {
+        "title": "Molloy, Malone Dies, The Unnamable, the trilogy",
+        "author": "Samuel Beckett",
+        "year": 1952,
+        "genre": "Absurdist Fiction",
+        "rating": 0
+    },
+    "011": {
+        "title": "The Decameron",
+        "author": "Giovanni Boccaccio",
+        "year": 1351,
+        "genre": "Frame Tale",
+        "rating": 4.0
+    },
+    "012": {
+        "title": "Ficciones",
+        "author": "Jorge Luis Borges",
+        "year": 1965,
+        "genre": "Short Stories",
+        "rating": 4.34
+    },
+    "013": {
+        "title": "Wuthering Heights",
+        "author": "Emily Brontë",
+        "year": 1847,
+        "genre": "Gothic Fiction",
+        "rating": 4.1
+    },
+    "014": {
+        "title": "The Stranger",
+        "author": "Albert Camus",
+        "year": 1942,
+        "genre": "Literary Fiction",
+        "rating": 4
+    },
+    "015": {
+        "title": "Poems",
+        "author": "Paul Celan",
+        "year": 1952,
+        "genre": "Poetry",
+        "rating": 5
+    },
+    "016": {
+        "title": "Journey to the End of the Night",
+        "author": "Louis-Ferdinand Céline",
+        "year": 1932,
+        "genre": "Literary Fiction",
+        "rating": 0
+    },
+    "017": {
+        "title": "Don Quijote De La Mancha",
+        "author": "Miguel de Cervantes",
+        "year": 1610,
+        "genre": "Satire",
+        "rating": 3.89
+    },
+    "018": {
+        "title": "The Canterbury Tales",
+        "author": "Geoffrey Chaucer",
+        "year": 1450,
+        "genre": "Frame Tale",
+        "rating": 3.28
+    },
+    "019": {
+        "title": "Stories",
+        "author": "Anton Chekhov",
+        "year": 1886,
+        "genre": "Short Stories",
+        "rating": 4
+    },
+    "020": {
+        "title": "Nostromo",
+        "author": "Joseph Conrad",
+        "year": 1904,
+        "genre": "Literary Fiction",
+        "rating": 3.89
+    },
+    "021": {
+        "title": "Great Expectations",
+        "author": "Charles Dickens",
+        "year": 1861,
+        "genre": "Bildungsroman",
+        "rating": 3.76
+    },
+    "022": {
+        "title": "Jacques the Fatalist",
+        "author": "Denis Diderot",
+        "year": 1796,
+        "genre": "Literary Fiction",
+        "rating": 0
+    },
+    "023": {
+        "title": "Berlin Alexanderplatz",
+        "author": "Alfred Döblin",
+        "year": 1929,
+        "genre": "Modernist Novel",
+        "rating": 4
+    },
+    "024": {
+        "title": "Crime and Punishment",
+        "author": "Fyodor Dostoevsky",
+        "year": 1866,
+        "genre": "Philosophical Novel",
+        "rating": 4
+    },
+    "025": {
+        "title": "The Idiot",
+        "author": "Fyodor Dostoevsky",
+        "year": 1869,
+        "genre": "Philosophical Novel",
+        "rating": 4.5
+    },
+    "026": {
+        "title": "The Possessed",
+        "author": "Fyodor Dostoevsky",
+        "year": 1872,
+        "genre": "Philosophical Novel",
+        "rating": 3.89
+    },
+    "027": {
+        "title": "The Brothers Karamazov",
+        "author": "Fyodor Dostoevsky",
+        "year": 1880,
+        "genre": "Philosophical Novel",
+        "rating": 4
+    },
+    "028": {
+        "title": "Middlemarch",
+        "author": "George Eliot",
+        "year": 1871,
+        "genre": "Realist Novel",
+        "rating": 4.12
+    },
+    "029": {
+        "title": "Invisible Man",
+        "author": "Ralph Ellison",
+        "year": 1952,
+        "genre": "Postcolonial Fiction",
+        "rating": 4
+    },
+    "030": {
+        "title": "Medea",
+        "author": "Euripides",
+        "year": -431,
+        "genre": "Tragedy",
+        "rating": 3.75
+    },
+    "031": {
+        "title": "Absalom, Absalom!",
+        "author": "William Faulkner",
+        "year": 1936,
+        "genre": "Literary Fiction",
+        "rating": 4.5
+    },
+    "032": {
+        "title": "The Sound and the Fury",
+        "author": "William Faulkner",
+        "year": 1929,
+        "genre": "Literary Fiction",
+        "rating": 3.88
+    },
+    "033": {
+        "title": "Madame Bovary",
+        "author": "Gustave Flaubert",
+        "year": 1857,
+        "genre": "Realist Novel",
+        "rating": 3.68
+    },
+    "034": {
+        "title": "Sentimental Education",
+        "author": "Gustave Flaubert",
+        "year": 1869,
+        "genre": "Realist Novel",
+        "rating": 0
+    },
+    "035": {
+        "title": "Gypsy Ballads",
+        "author": "Federico García Lorca",
+        "year": 1928,
+        "genre": "Poetry",
+        "rating": 0
+    },
+    "036": {
+        "title": "One Hundred Years of Solitude",
+        "author": "Gabriel García Márquez",
+        "year": 1967,
+        "genre": "Magical Realism",
+        "rating": 3
+    },
+    "037": {
+        "title": "Love in the Time of Cholera",
+        "author": "Gabriel García Márquez",
+        "year": 1985,
+        "genre": "Magical Realism",
+        "rating": 4
+    },
+    "038": {
+        "title": "Faust",
+        "author": "Johann Wolfgang von Goethe",
+        "year": 1832,
+        "genre": "Tragedy",
+        "rating": 4.03
+    },
+    "039": {
+        "title": "Dead Souls",
+        "author": "Nikolai Gogol",
+        "year": 1842,
+        "genre": "Satire",
+        "rating": 4.4
+    },
+    "040": {
+        "title": "The Tin Drum",
+        "author": "Günter Grass",
+        "year": 1959,
+        "genre": "Magical Realism",
+        "rating": 4
+    },
+    "041": {
+        "title": "The Devil to Pay in the Backlands",
+        "author": "João Guimarães Rosa",
+        "year": 1956,
+        "genre": "Literary Fiction",
+        "rating": 0
+    },
+    "042": {
+        "title": "Hunger",
+        "author": "Knut Hamsun",
+        "year": 1890,
+        "genre": "Literary Fiction",
+        "rating": 4.1
+    },
+    "043": {
+        "title": "The Old Man and the Sea",
+        "author": "Ernest Hemingway",
+        "year": 1952,
+        "genre": "Novella",
+        "rating": 3.9
+    },
+    "044": {
+        "title": "Iliad",
+        "author": "Homer",
+        "year": -735,
+        "genre": "Epic Poetry",
+        "rating": 5
+    },
+    "045": {
+        "title": "Odyssey",
+        "author": "Homer",
+        "year": -800,
+        "genre": "Epic Poetry",
+        "rating": 4
+    },
+    "046": {
+        "title": "A Doll's House",
+        "author": "Henrik Ibsen",
+        "year": 1879,
+        "genre": "Tragedy",
+        "rating": 4.33
+    },
+    "047": {
+        "title": "Ulysses",
+        "author": "James Joyce",
+        "year": 1922,
+        "genre": "Modernist Novel",
+        "rating": 3.38
+    },
+    "048": {
+        "title": "Stories",
+        "author": "Franz Kafka",
+        "year": 1924,
+        "genre": "Short Stories",
+        "rating": 4.17
+    },
+    "049": {
+        "title": "The Trial",
+        "author": "Franz Kafka",
+        "year": 1925,
+        "genre": "Absurdist Fiction",
+        "rating": 4
+    },
+    "050": {
+        "title": "The Castle",
+        "author": "Franz Kafka",
+        "year": 1926,
+        "genre": "Absurdist Fiction",
+        "rating": 4
+    },
+    "051": {
+        "title": "The recognition of Shakuntala",
+        "author": "Kālidāsa",
+        "year": 150,
+        "genre": "Tragedy",
+        "rating": 0
+    },
+    "052": {
+        "title": "The Sound of the Mountain",
+        "author": "Yasunari Kawabata",
+        "year": 1954,
+        "genre": "Literary Fiction",
+        "rating": 5.0
+    },
+    "053": {
+        "title": "Zorba the Greek",
+        "author": "Nikos Kazantzakis",
+        "year": 1946,
+        "genre": "Philosophical Novel",
+        "rating": 2.0
+    },
+    "054": {
+        "title": "Sons and Lovers",
+        "author": "D. H. Lawrence",
+        "year": 1913,
+        "genre": "Bildungsroman",
+        "rating": 4.5
+    },
+    "055": {
+        "title": "Independent People",
+        "author": "Halldór Laxness",
+        "year": 1934,
+        "genre": "Literary Fiction",
+        "rating": 0
+    },
+    "056": {
+        "title": "Poems",
+        "author": "Giacomo Leopardi",
+        "year": 1818,
+        "genre": "Poetry",
+        "rating": 4.12
+    },
+    "057": {
+        "title": "The Golden Notebook",
+        "author": "Doris Lessing",
+        "year": 1962,
+        "genre": "Literary Fiction",
+        "rating": 2.9
+    },
+    "058": {
+        "title": "Pippi Longstocking",
+        "author": "Astrid Lindgren",
+        "year": 1945,
+        "genre": "Children Fiction",
+        "rating": 0
+    },
+    "059": {
+        "title": "Diary of a Madman",
+        "author": "Lu Xun",
+        "year": 1918,
+        "genre": "Short Stories",
+        "rating": 5
+    },
+    "060": {
+        "title": "Children of Gebelawi",
+        "author": "Naguib Mahfouz",
+        "year": 1959,
+        "genre": "Literary Fiction",
+        "rating": 0
+    },
+    "061": {
+        "title": "Buddenbrooks",
+        "author": "Thomas Mann",
+        "year": 1901,
+        "genre": "Literary Fiction",
+        "rating": 3.75
+    },
+    "062": {
+        "title": "The Magic Mountain",
+        "author": "Thomas Mann",
+        "year": 1924,
+        "genre": "Literary Fiction",
+        "rating": 4
+    },
+    "063": {
+        "title": "Moby Dick",
+        "author": "Herman Melville",
+        "year": 1851,
+        "genre": "Adventure",
+        "rating": 3.98
+    },
+    "064": {
+        "title": "Essays",
+        "author": "Michel de Montaigne",
+        "year": 1595,
+        "genre": "Essays",
+        "rating": 3.75
+    },
+    "065": {
+        "title": "History",
+        "author": "Elsa Morante",
+        "year": 1974,
+        "genre": "Historical Fiction",
+        "rating": 3.93
+    },
+    "066": {
+        "title": "Beloved",
+        "author": "Toni Morrison",
+        "year": 1987,
+        "genre": "Historical Fiction",
+        "rating": 3.92
+    },
+    "067": {
+        "title": "The Tale of Genji",
+        "author": "Murasaki Shikibu",
+        "year": 1006,
+        "genre": "Romance",
+        "rating": 3
+    },
+    "068": {
+        "title": "The Man Without Qualities",
+        "author": "Robert Musil",
+        "year": 1931,
+        "genre": "Literary Fiction",
+        "rating": 0
+    },
+    "069": {
+        "title": "Lolita",
+        "author": "Vladimir Nabokov",
+        "year": 1955,
+        "genre": "Literary Fiction",
+        "rating": 3.97
+    },
+    "070": {
+        "title": "Nineteen Eighty-Four",
+        "author": "George Orwell",
+        "year": 1949,
+        "genre": "Dystopian Fiction",
+        "rating": 4.29
+    },
+    "071": {
+        "title": "Metamorphoses",
+        "author": "Ovid",
+        "year": 100,
+        "genre": "Literary Fiction",
+        "rating": 4.28
+    },
+    "072": {
+        "title": "The Book of Disquiet",
+        "author": "Fernando Pessoa",
+        "year": 1928,
+        "genre": "Philosophical Novel",
+        "rating": 0
+    },
+    "073": {
+        "title": "Tales",
+        "author": "Edgar Allan Poe",
+        "year": 1950,
+        "genre": "Gothic Fiction",
+        "rating": 4.2
+    },
+    "074": {
+        "title": "In Search of Lost Time",
+        "author": "Marcel Proust",
+        "year": 1920,
+        "genre": "Modernist Novel",
+        "rating": 5
+    },
+    "075": {
+        "title": "Gargantua and Pantagruel",
+        "author": "François Rabelais",
+        "year": 1533,
+        "genre": "Satire",
+        "rating": 0
+    },
+    "076": {
+        "title": "Pedro Páramo",
+        "author": "Juan Rulfo",
+        "year": 1955,
+        "genre": "Magical Realism",
+        "rating": 4.21
+    },
+    "077": {
+        "title": "The Masnavi",
+        "author": "Rumi",
+        "year": 1236,
+        "genre": "Epic Poetry",
+        "rating": 0
+    },
+    "078": {
+        "title": "Midnight's Children",
+        "author": "Salman Rushdie",
+        "year": 1981,
+        "genre": "Magical Realism",
+        "rating": 3.89
+    },
+    "079": {
+        "title": "Bostan",
+        "author": "Saadi",
+        "year": 1257,
+        "genre": "Poetry",
+        "rating": 0
+    },
+    "080": {
+        "title": "Season of Migration to the North",
+        "author": "Tayeb Salih",
+        "year": 1966,
+        "genre": "Postcolonial Fiction",
+        "rating": 4
+    },
+    "081": {
+        "title": "Blindness",
+        "author": "José Saramago",
+        "year": 1995,
+        "genre": "Dystopian Fiction",
+        "rating": 5
+    },
+    "082": {
+        "title": "Hamlet",
+        "author": "William Shakespeare",
+        "year": 1603,
+        "genre": "Tragedy",
+        "rating": 4.01
+    },
+    "083": {
+        "title": "King Lear",
+        "author": "William Shakespeare",
+        "year": 1608,
+        "genre": "Tragedy",
+        "rating": 4
+    },
+    "084": {
+        "title": "Othello",
+        "author": "William Shakespeare",
+        "year": 1609,
+        "genre": "Tragedy",
+        "rating": 3.81
+    },
+    "085": {
+        "title": "Oedipus the King",
+        "author": "Sophocles",
+        "year": -430,
+        "genre": "Tragedy",
+        "rating": 3
+    },
+    "086": {
+        "title": "The Red and the Black",
+        "author": "Stendhal",
+        "year": 1830,
+        "genre": "Bildungsroman",
+        "rating": 4
+    },
+    "087": {
+        "title": "The Life And Opinions of Tristram Shandy",
+        "author": "Laurence Sterne",
+        "year": 1760,
+        "genre": "Satire",
+        "rating": 4.09
+    },
+    "088": {
+        "title": "Confessions of Zeno",
+        "author": "Italo Svevo",
+        "year": 1923,
+        "genre": "Philosophical Novel",
+        "rating": 4.5
+    },
+    "089": {
+        "title": "Gulliver's Travels",
+        "author": "Jonathan Swift",
+        "year": 1726,
+        "genre": "Satire",
+        "rating": 3.61
+    },
+    "090": {
+        "title": "War and Peace",
+        "author": "Leo Tolstoy",
+        "year": 1867,
+        "genre": "Historical Fiction",
+        "rating": 4.22
+    },
+    "091": {
+        "title": "Anna Karenina",
+        "author": "Leo Tolstoy",
+        "year": 1877,
+        "genre": "Realist Novel",
+        "rating": 4
+    },
+    "092": {
+        "title": "The Death of Ivan Ilyich",
+        "author": "Leo Tolstoy",
+        "year": 1886,
+        "genre": "Novella",
+        "rating": 0
+    },
+    "093": {
+        "title": "The Adventures of Huckleberry Finn",
+        "author": "Mark Twain",
+        "year": 1884,
+        "genre": "Adventure",
+        "rating": 4
+    },
+    "094": {
+        "title": "Ramayana",
+        "author": "Valmiki",
+        "year": -450,
+        "genre": "Epic Poetry",
+        "rating": 4.24
+    },
+    "095": {
+        "title": "The Aeneid",
+        "author": "Virgil",
+        "year": -23,
+        "genre": "Epic Poetry",
+        "rating": 3.67
+    },
+    "096": {
+        "title": "Mahabharata",
+        "author": "Vyasa",
+        "year": -700,
+        "genre": "Epic Poetry",
+        "rating": 3.0
+    },
+    "097": {
+        "title": "Leaves of Grass",
+        "author": "Walt Whitman",
+        "year": 1855,
+        "genre": "Poetry",
+        "rating": 4.08
+    },
+    "098": {
+        "title": "Mrs Dalloway",
+        "author": "Virginia Woolf",
+        "year": 1925,
+        "genre": "Modernist Novel",
+        "rating": 3.64
+    },
+    "099": {
+        "title": "To the Lighthouse",
+        "author": "Virginia Woolf",
+        "year": 1927,
+        "genre": "Modernist Novel",
+        "rating": 3.76
+    },
+    "100": {
+        "title": "Memoirs of Hadrian",
+        "author": "Marguerite Yourcenar",
+        "year": 1951,
+        "genre": "Historical Fiction",
+        "rating": 4
+    }
+}
