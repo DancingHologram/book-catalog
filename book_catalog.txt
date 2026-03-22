@@ -1,0 +1,30 @@
+{
+    "001": {
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "year": 1960,
+        "genre": "Fiction",
+        "rating": 4.9
+    },
+    "002": {
+        "title": "1984",
+        "author": "George Orwell",
+        "year": 1949,
+        "genre": "Dystopian",
+        "rating": 4.8
+    },
+    "003": {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "year": 1925,
+        "genre": "Tragedy",
+        "rating": 4.5
+    },
+    "004": {
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "year": 1951,
+        "genre": "Fiction",
+        "rating": 4.6
+    }
+}
