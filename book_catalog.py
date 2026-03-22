@@ -13,12 +13,12 @@ from __future__ import annotations
 import ast
 import json
 from pathlib import Path
-from pprint import pformat
 import tkinter as tk
-from tkinter import messagebox, ttk
+from tkinter import filedialog, messagebox, ttk
 
-# Path to the file used for saving/loading the catalog.
-CATALOG_FILE = Path("book_catalog.txt")
+
+def get_default_catalog_path() -> Path:
+    return Path("ch12/book_list2.json")
 
 
 def default_catalog() -> dict[str, dict[str, object]]:
@@ -56,40 +56,52 @@ def default_catalog() -> dict[str, dict[str, object]]:
 
 
 
-def save_catalog(catalog: dict[str, dict[str, object]]) -> None:
+def save_catalog(catalog: dict[str, dict[str, object]], file_path: Path | None = None) -> None:
     # Write the current in-memory dictionary to disk as pretty JSON.
-    with CATALOG_FILE.open("w", encoding="utf-8") as file:
+    target_path = file_path or get_default_catalog_path()
+    target_path.parent.mkdir(parents=True, exist_ok=True)
+    with target_path.open("w", encoding="utf-8") as file:
         json.dump(catalog, file, indent=4)
 
 
-def load_catalog() -> dict[str, dict[str, object]]:
+def load_catalog(file_path: Path | None = None) -> dict[str, dict[str, object]]:
     # If there is no file yet, create one using default data.
-    if not CATALOG_FILE.exists():
+    target_path = file_path or get_default_catalog_path()
+
+    if not target_path.exists():
         catalog = default_catalog()
-        save_catalog(catalog)
+        save_catalog(catalog, target_path)
         return catalog
 
     try:
         # Normal path: load JSON from file.
-        with CATALOG_FILE.open("r", encoding="utf-8") as file:
+        # utf-8-sig allows JSON files that include a UTF-8 BOM (common on Windows tools).
+        with target_path.open("r", encoding="utf-8-sig") as file:
             data = json.load(file)
     except json.JSONDecodeError:
         # Compatibility path: try reading older Python-dict string format once.
-        raw = CATALOG_FILE.read_text(encoding="utf-8").strip()
+        try:
+            raw = target_path.read_text(encoding="utf-8-sig").strip()
+        except OSError:
+            return {}
+
         if not raw:
             return {}
 
         try:
             legacy_data = ast.literal_eval(raw)
-        except (SyntaxError, ValueError):
+        except (SyntaxError, ValueError, TypeError):
             # If neither JSON nor legacy format can be parsed, start clean.
             return {}
 
         if isinstance(legacy_data, dict):
             # Migrate parsed legacy data into JSON format and keep it.
-            save_catalog(legacy_data)
+            save_catalog(legacy_data, target_path)
             return legacy_data
 
+        return {}
+    except OSError:
+        # I/O issues are handled by returning an empty catalog.
         return {}
 
     if not isinstance(data, dict):
@@ -137,7 +149,10 @@ class BookCatalogApp(tk.Tk):
         self.minsize(1000, 620)
 
         # In-memory working copy of the catalog loaded from JSON file.
-        self.catalog: dict[str, dict[str, object]] = load_catalog()
+        self.current_file = get_default_catalog_path()
+        self.catalog: dict[str, dict[str, object]] = load_catalog(self.current_file)
+        self._last_sort_column: str | None = None
+        self._sort_reverse = False
 
         # Build all GUI sections, then show current records in the table.
         self._build_form_section()
@@ -215,12 +230,16 @@ class BookCatalogApp(tk.Tk):
         self.tree = ttk.Treeview(table_frame, columns=columns, show="headings")
 
         # Configure each column heading and width.
-        self.tree.heading("id", text="ID")
-        self.tree.heading("title", text="Title")
-        self.tree.heading("author", text="Author")
-        self.tree.heading("year", text="Year")
-        self.tree.heading("genre", text="Genre")
-        self.tree.heading("rating", text="Rating")
+        self._heading_labels = {
+            "id": "ID",
+            "title": "Title",
+            "author": "Author",
+            "year": "Year",
+            "genre": "Genre",
+            "rating": "Rating",
+        }
+        for column, label in self._heading_labels.items():
+            self.tree.heading(column, text=label, command=lambda c=column: self.sort_by_column(c))
 
         # Left align all columns except rating, which is right aligned.
         self.tree.column("id", width=90, anchor="w")
@@ -250,8 +269,14 @@ class BookCatalogApp(tk.Tk):
         status_frame = ttk.LabelFrame(self, text="Status")
         status_frame.pack(fill="x", padx=10, pady=(0, 10))
 
+        self.current_file_var = tk.StringVar(value=f"Current file: {self.current_file}")
+        ttk.Label(status_frame, textvariable=self.current_file_var).pack(anchor="w", padx=8, pady=(8, 2))
+
         self.status_var = tk.StringVar(value="Ready.")
-        ttk.Label(status_frame, textvariable=self.status_var).pack(anchor="w", padx=8, pady=8)
+        ttk.Label(status_frame, textvariable=self.status_var).pack(anchor="w", padx=8, pady=(2, 8))
+
+    def _update_current_file_label(self) -> None:
+        self.current_file_var.set(f"Current file: {self.current_file}")
 
     def refresh_table(self, source_catalog: dict[str, dict[str, object]]) -> None:
         # Remove current rows, then repopulate from the provided source dictionary.
@@ -271,6 +296,55 @@ class BookCatalogApp(tk.Tk):
                     f"{float(details.get('rating', 0)):.2f}",
                 ),
             )
+
+        # Keep currently selected sort order after refresh operations.
+        if self._last_sort_column:
+            self.sort_by_column(self._last_sort_column, toggle=False)
+
+    def _column_sort_key(self, column: str, raw_value: str) -> object:
+        # Numeric columns are sorted by number values, text columns case-insensitively.
+        if column == "year":
+            try:
+                return int(raw_value)
+            except ValueError:
+                return float("-inf")
+
+        if column == "rating":
+            try:
+                return float(raw_value)
+            except ValueError:
+                return float("-inf")
+
+        if column == "id" and raw_value.isdigit():
+            return int(raw_value)
+
+        return raw_value.lower()
+
+    def _update_heading_labels(self) -> None:
+        for column, label in self._heading_labels.items():
+            if column == self._last_sort_column:
+                arrow = " ▼" if self._sort_reverse else " ▲"
+                self.tree.heading(column, text=f"{label}{arrow}")
+            else:
+                self.tree.heading(column, text=label)
+
+    def sort_by_column(self, column: str, toggle: bool = True) -> None:
+        # Sort the currently visible rows by selected column.
+        if toggle:
+            if self._last_sort_column == column:
+                self._sort_reverse = not self._sort_reverse
+            else:
+                self._sort_reverse = False
+
+        self._last_sort_column = column
+
+        rows = [(self.tree.set(item, column), item) for item in self.tree.get_children("")]
+        rows.sort(key=lambda row: self._column_sort_key(column, row[0]), reverse=self._sort_reverse)
+
+        for index, (_value, item) in enumerate(rows):
+            self.tree.move(item, "", index)
+
+        self._update_heading_labels()
 
     def clear_form(self) -> None:
         # Reset all data-entry fields to blank.
@@ -333,15 +407,15 @@ class BookCatalogApp(tk.Tk):
             "genre": genre,
             "rating": rating,
         }
-        save_catalog(self.catalog)
+        save_catalog(self.catalog, self.current_file)
         self.refresh_table(self.catalog)
         self.status_var.set(f"Book {book_id} added successfully.")
 
     def view_all_books(self) -> None:
         # Requirement alignment: view reads latest data from file before showing table.
-        self.catalog = load_catalog()
+        self.catalog = load_catalog(self.current_file)
         self.refresh_table(self.catalog)
-        self.status_var.set("Showing all books from book_catalog.txt.")
+        self.status_var.set(f"Showing all books from {self.current_file.name}.")
 
     def update_selected_book(self) -> None:
         # Update rule for this project: only rating and/or genre are changed.
@@ -366,7 +440,7 @@ class BookCatalogApp(tk.Tk):
                 messagebox.showerror("Invalid Rating", str(error))
                 return
 
-        save_catalog(self.catalog)
+        save_catalog(self.catalog, self.current_file)
         self.refresh_table(self.catalog)
         self.status_var.set(f"Book {book_id} updated successfully (genre/rating).")
 
@@ -386,7 +460,7 @@ class BookCatalogApp(tk.Tk):
             return
 
         del self.catalog[book_id]
-        save_catalog(self.catalog)
+        save_catalog(self.catalog, self.current_file)
         self.refresh_table(self.catalog)
         self.status_var.set(f"Book {book_id} deleted successfully.")
         self.clear_form()
@@ -442,21 +516,38 @@ class BookCatalogApp(tk.Tk):
         self.status_var.set(f"Year search complete. Matches: {len(results)}")
 
     def export_catalog(self) -> None:
-        # Explicit export writes current memory state to JSON file.
-        save_catalog(self.catalog)
-        self.status_var.set("Catalog exported successfully!")
-        messagebox.showinfo("Export", "Catalog exported successfully!")
+        # Export writes to the currently selected import file.
+        try:
+            save_catalog(self.catalog, self.current_file)
+        except OSError as error:
+            messagebox.showerror("Export Failed", f"Could not write file:\n{error}")
+            return
+
+        self.status_var.set(f"Catalog exported to {self.current_file.name}.")
+        messagebox.showinfo(
+            "Export",
+            f"Catalog exported successfully to:\n{self.current_file}",
+        )
 
     def import_catalog(self) -> None:
-        # Import reloads from file and displays the exact style message requested.
-        self.catalog = load_catalog()
+        # Import prompts for a JSON file, then uses that file for future save/export.
+        selected = filedialog.askopenfilename(
+            title="Import Catalog",
+            filetypes=[("JSON files", "*.json"), ("All files", "*.*")],
+            initialdir=str(self.current_file.parent),
+        )
+        if not selected:
+            self.status_var.set("Import cancelled.")
+            return
+
+        self.current_file = Path(selected)
+        self._update_current_file_label()
+        self.catalog = load_catalog(self.current_file)
         self.refresh_table(self.catalog)
-        imported_text = pformat(self.catalog, sort_dicts=False)
-        self.status_var.set("Catalog imported successfully!")
+        self.status_var.set(f"Catalog imported from {self.current_file.name}.")
         messagebox.showinfo(
             "Import",
-            "Catalog imported successfully!\n"
-            f"Imported Catalog: {imported_text}",
+            f"Catalog imported successfully from:\n{self.current_file}",
         )
 
 
