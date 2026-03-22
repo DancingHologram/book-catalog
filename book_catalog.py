@@ -3,6 +3,10 @@
 # This program provides a GUI-based Book Catalog manager.
 # It stores book records in an embedded dictionary and persists data in JSON.
 
+# I want to make this program use an API call in the future to pull data about books from the internet and make it more dynamic.
+# For example, we could use the Open Library API (https://openlibrary.org/developers/api) to fetch book details by ISBN.
+
+
 from __future__ import annotations
 
 # ast is kept only for one-time migration from older non-JSON file content.
